@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 60 9% 98%;
+    --foreground: 20 14.3% 4.1%;
+    
+    --primary: 350 89% 60%;
+    --primary-foreground: 60 9% 98%;
+ 
+    --card: 60 9% 98%;
+    --card-foreground: 20 14.3% 4.1%;
+ 
+    --popover: 60 9% 98%;
+    --popover-foreground: 20 14.3% 4.1%;
+ 
+    --secondary: 12 6.5% 15.1%;
+    --secondary-foreground: 60 9% 98%;
+ 
+    --muted: 12 6.5% 15.1%;
+    --muted-foreground: 20 14.3% 4.1%;
+ 
+    --accent: 60 90% 50%;
+    --accent-foreground: 20 14.3% 4.1%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 60 9% 98%;
+ 
+    --border: 20 14.3% 4.1%;
+    --input: 20 14.3% 4.1%;
+    --ring: 20 14.3% 4.1%;
+ 
+    --radius: 0rem;
+  }
+}
+
+@layer utilities {
+  .neo-brutalist {
+    @apply border-[3px] border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)];
+  }
+  
+  .neo-brutalist-sm {
+    @apply border-2 border-black shadow-[2px_2px_0px_0px_rgba(0,0,0,1)];
+  }
+  
+  .neo-brutalist-hover {
+    @apply hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-all;
+  }
+}
+
+.theme-card {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.theme-card::before {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-black/5 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.theme-card:hover::before {
+  @apply opacity-100;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+  border-left: 2px solid black;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border: 2px solid hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
